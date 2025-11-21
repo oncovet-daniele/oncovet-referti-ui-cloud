@@ -8,7 +8,6 @@ export default function App() {
   const [user, loading] = useAuthState(auth);
 
   if (loading) return <p>Caricamento...</p>;
-
   if (!user) return <LoginPage />;
 
   return <DashboardPage />;
