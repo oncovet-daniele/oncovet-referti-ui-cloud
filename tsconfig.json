@@ -4,19 +4,23 @@
     "module": "ESNext",
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
+
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
- 
-    /* -------- DISATTIVA I CONTROLLI SEVERI PER FIREBASE -------- */
+
+    /* Disattiva controlli severi per Firebase */
     "strict": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": false,
     "noImplicitAny": false,
-    "preserveValueImports": false
+    "preserveValueImports": false,
+
+    /* Importante per JSX */
+    "jsx": "react-jsx"
   },
 
   "include": ["src"],
