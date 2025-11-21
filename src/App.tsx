@@ -1,27 +1,12 @@
-import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
 import LoginPage from "./pages/LoginPage";
-import { testFirestore } from "./testFirestore";
+import DashboardPage from "./pages/DashboardPage";
 
 export default function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [user, loading] = useAuthState(auth);
 
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setLoggedIn(true);
-        testFirestore();  // 🔥 esegue il test dopo login
-      } else {
-        setLoggedIn(false);
-      }
-    });
-    return () => unsub();
-  }, []);
+  if (loading) return <p>Caricamento...</p>;
 
-  if (!loggedIn) {
-    return <LoginPage onLogin={() => setLoggedIn(true)} />;
-  }
-
-  return <div style={{ padding: 20 }}>✔ Logged In – Testing Firestore…</div>;
+  return user ? <DashboardPage /> : <LoginPage />;
 }
