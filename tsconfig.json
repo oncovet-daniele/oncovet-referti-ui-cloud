@@ -9,8 +9,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "noEmit": true,
-
+ 
     /* -------- DISATTIVA I CONTROLLI SEVERI PER FIREBASE -------- */
     "strict": false,
     "noUnusedLocals": false,
