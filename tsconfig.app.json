@@ -1,27 +1,24 @@
 {
   "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2022",
-    "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "target": "ESNext",
     "module": "ESNext",
-    "types": ["vite/client"],
+    "moduleResolution": "Bundler",
+    "lib": ["ESNext", "DOM"],
+    "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
+    "jsx": "react-jsx",
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Lint */
+    /* disabilita TUTTI i controlli severi */
     "strict": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitAny": false,
+    "preserveValueImports": false,
+
+    /* richiesti per TSC -b */
+    "composite": true,
+    "noEmit": false
   },
   "include": ["src"]
 }
