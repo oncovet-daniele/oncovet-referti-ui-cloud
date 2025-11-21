@@ -2,52 +2,44 @@ import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 
-export default function LoginPage({ onLogin }: { onLogin: () => void }) {
+export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  async function handleLogin(e: React.FormEvent) {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      onLogin();
-    } catch (err: any) {
-      setError(err.message);
+      setError("");
+    } catch (err) {
+      setError("Credenziali non valide.");
     }
-  }
+  };
 
   return (
-    <div style={{ padding: 40 }}>
-      <h2>Login OSR</h2>
+    <div style={{ padding: 30 }}>
+      <h1>Login OSR</h1>
 
       <form onSubmit={handleLogin}>
-        <div>
-          <label>Email</label><br />
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        /><br /><br />
 
-        <div style={{ marginTop: 10 }}>
-          <label>Password</label><br />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        /><br /><br />
 
-        <button type="submit" style={{ marginTop: 20 }}>Login</button>
-
-        {error && (
-          <div style={{ color: "red", marginTop: 10 }}>
-            {error}
-          </div>
-        )}
+        <button type="submit">Accedi</button>
       </form>
+
+      {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );
 }
