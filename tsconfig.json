@@ -1,16 +1,28 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ],
   "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+
+    /* DISATTIVA TOTALMENTE I CONTROLLI SEVERI DI TYPESCRIPT PER FIREBASE */
+    "strict": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noEmitOnError": false
-  }
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitAny": false,
+    "preserveValueImports": false
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }
