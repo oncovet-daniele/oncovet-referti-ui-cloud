@@ -1,23 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "composite": true,
+    "tsBuildInfoFile": "./.node_modules/.tmp/tsconfig.app.tsbuildinfo",
+
+    "target": "ES2023",
     "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "lib": ["ESNext", "DOM"],
-    "allowSyntheticDefaultImports": true,
+
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
+
     "jsx": "react-jsx",
 
-    /* disabilita TUTTI i controlli severi */
-    "strict": false,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noFallthroughCasesInSwitch": false,
-    "noImplicitAny": false,
-    "preserveValueImports": false,
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
 
-    /* richiesti per TSC -b */
-    "composite": true,
+    /* Firebase richiede *obbligatoriamente* noEmit: false */
     "noEmit": false
   },
   "include": ["src"]
