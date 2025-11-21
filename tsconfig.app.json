@@ -1,23 +1,27 @@
 {
   "compilerOptions": {
-    "composite": true,
-    "tsBuildInfoFile": "./.node_modules/.tmp/tsconfig.app.tsbuildinfo",
-
-    "target": "ES2023",
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-
-    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "types": ["vite/client"],
     "skipLibCheck": true,
 
-    "jsx": "react-jsx",
-
-    "moduleResolution": "Bundler",
+    /* Bundler mode */
+    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
+    "noEmit": true,
 
-    /* Firebase richiede *obbligatoriamente* noEmit: false */
-    "noEmit": false
+    /* Lint */
+    "strict": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
   "include": ["src"]
 }
