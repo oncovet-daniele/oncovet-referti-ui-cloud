@@ -1,5 +1,6 @@
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
+
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 
@@ -8,5 +9,7 @@ export default function App() {
 
   if (loading) return <p>Caricamento...</p>;
 
-  return user ? <DashboardPage /> : <LoginPage />;
+  if (!user) return <LoginPage />;
+
+  return <DashboardPage />;
 }
