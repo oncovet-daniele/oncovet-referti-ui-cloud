@@ -14,7 +14,6 @@
     "verbatimModuleSyntax": true,
 
     /* no emit */
-    "noEmit": true
-  },
+   },
   "include": ["vite.config.ts"]
 }
