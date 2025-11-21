@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================
+   PALETTE CYBERMED TECH (OSR)
+   ============================ */
+:root {
+  --osr-sidebar: #1C1F33;
+  --osr-sidebar-hover: #2E3358;
+  --osr-sidebar-text: #E2E8F0;
+  --osr-accent: #4CC9F0;
+  --osr-bg: #EEF2F7;
+}
+
+/* ============================
+   GLOBAL STYLE
+   ============================ */
+body {
+  background: var(--osr-bg);
+  color: #1a1a1a;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+}
