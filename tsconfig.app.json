@@ -15,7 +15,6 @@
     "verbatimModuleSyntax": true,
 
     /* niente emissione */
-    "noEmit": true
   },
   "include": ["src"]
 }
