@@ -2,18 +2,19 @@
   "compilerOptions": {
     "composite": true,
     "tsBuildInfoFile": "./.node_modules/.tmp/tsconfig.node.tsbuildinfo",
+
     "target": "ES2023",
     "module": "ESNext",
+
     "lib": ["ES2023"],
     "skipLibCheck": true,
 
-    /* build richiesto da Firebase */
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
 
-    /* IMPORTANTISSIMO */
+    /* Firebase richiede *obbligatoriamente* noEmit: false */
     "noEmit": false
   },
   "include": ["vite.config.ts"]
