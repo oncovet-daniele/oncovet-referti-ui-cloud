@@ -23,9 +23,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
 
-    /* IMPORTANTE */
+    /* ⭐ IMPORTANTISSIMO ⭐ */
     "jsx": "react-jsx"
   },
-  
+
   "include": ["src"]
 }
