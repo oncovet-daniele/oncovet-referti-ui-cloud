@@ -5,7 +5,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: ""AIzaSyASCVTJRcrs4YI-7Wo-9-bdVjvWW3yT3lk"",
+  apiKey: "AIzaSyASCVTJRcrs4YI-7Wo-9-bdVjvWW3yT3lk",
   authDomain: "oncovet-referti.firebaseapp.com",
   projectId: "oncovet-referti",
 };
