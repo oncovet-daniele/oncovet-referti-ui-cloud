@@ -7,39 +7,47 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = async (e) => {
+  async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
+    setError("");
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      setError("");
-    } catch (err) {
+      // Login automatico: App.tsx gestisce il cambio pagina
+    } catch (err: any) {
       setError("Credenziali non valide.");
     }
-  };
+  }
 
   return (
-    <div style={{ padding: 30 }}>
-      <h1>Login OSR</h1>
+    <div style={{ padding: 40 }}>
+      <h2>Accedi a OSR</h2>
 
       <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        /><br /><br />
+        <label>Email</label><br />
+        <input 
+          type="email" 
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)} 
+        />
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        /><br /><br />
+        <br /><br />
 
-        <button type="submit">Accedi</button>
+        <label>Password</label><br />
+        <input 
+          type="password" 
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)} 
+        />
+
+        <button type="submit" style={{ marginTop: 20 }}>
+          Login
+        </button>
+
+        {error && (
+          <p style={{ color: "red", marginTop: 10 }}>{error}</p>
+        )}
       </form>
-
-      {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );
 }
