@@ -6,63 +6,51 @@ export default function MainLayout({ children }: any) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const isActive = (path: string) =>
-    location.pathname === path
-      ? "bg-blue-100 text-blue-700 font-semibold"
-      : "text-slate-600 hover:text-blue-600";
-
-  const handleLogout = async () => {
-    await signOut(auth);
-    navigate("/login");
-  };
+  const linkClass = (path: string) =>
+    `block px-4 py-2 rounded mb-2 cursor-pointer ${
+      location.pathname === path ? "bg-blue-100 text-blue-600" : "text-slate-700 hover:bg-slate-200"
+    }`;
 
   return (
-    <div className="flex min-h-screen bg-slate-100">
-
+    <div className="flex h-screen">
       {/* SIDEBAR */}
-      <aside className="w-64 bg-white border-r shadow-sm p-6 flex flex-col">
-        {/* LOGO */}
-        <div className="flex items-center gap-2 mb-10 cursor-pointer"
-             onClick={() => navigate("/")}>
-          <div className="text-3xl">⚡</div>
-          <h1 className="text-xl font-bold text-blue-700">OSR Dashboard</h1>
-        </div>
+      <aside className="w-56 bg-white border-r p-5 flex flex-col">
+        <h1
+          className="text-xl font-bold mb-6 cursor-pointer"
+          onClick={() => navigate("/")}
+        >
+          ⚡ OSR Dashboard
+        </h1>
 
         {/* MENU */}
-        <nav className="flex flex-col gap-3">
-          <button
-            className={`text-left px-3 py-2 rounded-md ${isActive("/")}`}
-            onClick={() => navigate("/")}
-          >
+        <div className="flex-1">
+          <div className={linkClass("/")} onClick={() => navigate("/")}>
             Pazienti
-          </button>
+          </div>
 
-          <button
-            className={`text-left px-3 py-2 rounded-md ${isActive("/referti")}`}
-            onClick={() => navigate("/referti")}
-          >
+          <div className={linkClass("/referti")} onClick={() => navigate("/referti")}>
             Referti
-          </button>
+          </div>
 
-          <button
-            className={`text-left px-3 py-2 rounded-md ${isActive("/dashboard")}`}
-            onClick={() => navigate("/dashboard")}
-          >
+          <div className={linkClass("/dashboard")} onClick={() => navigate("/dashboard")}>
             Dashboard
-          </button>
+          </div>
+        </div>
 
-          {/* LOGOUT */}
-          <button
-            className="mt-auto px-3 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
-            onClick={handleLogout}
-          >
-            Logout
-          </button>
-        </nav>
+        {/* LOGOUT */}
+        <button
+          className="bg-red-500 text-white px-4 py-2 rounded"
+          onClick={async () => {
+            await signOut(auth);
+            navigate("/login");
+          }}
+        >
+          Logout
+        </button>
       </aside>
 
-      {/* CONTENUTO PAGINE */}
-      <main className="flex-1 p-8">{children}</main>
+      {/* MAIN PAGE */}
+      <main className="flex-1 overflow-y-auto bg-slate-100">{children}</main>
     </div>
   );
 }
